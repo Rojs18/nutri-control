@@ -1,0 +1,1 @@
+<img src="{{ asset('img/Nutri-Control.jpg') }}" alt="Mi Logo" class="h-8 rounded-lg">
