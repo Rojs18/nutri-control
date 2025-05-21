@@ -9,24 +9,21 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up()
+    public function up(): void
     {
-        Schema::create('nutrition_plans', function (Blueprint $table) {
+        Schema::create('meal_options', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('patient_id')->constrained()->onDelete('cascade');
-            $table->text('description');
-            $table->date('start_date');
-            $table->date('end_date')->nullable();
+            $table->foreignId('option_id')->constrained()->onDelete('cascade');
+            $table->foreignId('recipe_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
-
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('nutrition_plans');
+        Schema::dropIfExists('meal_options');
     }
 };

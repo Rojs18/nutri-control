@@ -14,14 +14,16 @@
             <flux:navlist variant="outline">
                 <flux:navlist.group :heading="__('Platform')" class="grid">
                     <flux:navlist.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>{{ __('Dashboard') }}</flux:navlist.item>
-                    <flux:navlist.item icon="home" :href="route('patients.index')" :current="request()->routeIs('patients.index')" wire:navigate>{{ __('Pacientes') }}</flux:navlist.item>
+                    <flux:navlist.item icon="user" :href="route('patients.index')" :current="request()->routeIs('patients.index')" wire:navigate>{{ __('Pacientes') }}</flux:navlist.item>
+                    <flux:navlist.item icon="book-open" :href="route('recipes.index')" :current="request()->routeIs('recipes.index')" wire:navigate>{{ __('Recetas') }}</flux:navlist.item>
+                    <flux:navlist.item icon="calendar" :href="route('nutritional-plans.index')" :current="request()->routeIs('nutritional-plans.index')" wire:navigate>{{ __('Planificador') }}</flux:navlist.item>
                 </flux:navlist.group>
             </flux:navlist>
 
             <flux:spacer />
 
             <flux:navlist variant="outline">
- 
+
             </flux:navlist>
 
             <!-- Desktop User Menu -->
