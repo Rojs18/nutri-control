@@ -61,6 +61,18 @@ select:focus[data-flux-control] {
     @apply outline-hidden ring-2 ring-accent ring-offset-2 ring-offset-accent-foreground;
 }
 
+.table-hover tbody tr:hover {
+    background-color: #f9fafb;
+}
+
+.action-link {
+    transition: color 0.2s;
+}
+
+.action-link:hover {
+    text-decoration: underline;
+}
+
 /* \[:where(&)\]:size-4 {
     @apply size-4;
 } */

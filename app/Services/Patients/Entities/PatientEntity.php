@@ -7,30 +7,30 @@ class PatientEntity
 {
     /** @var string */
     protected string $first_name;
-    
+
     /** @var string */
     protected string $last_name;
-    
+
     /** @var string */
     protected string $birth_date;
-    
+
     /** @var string */
     protected string $gender;
-    
+
     /** @var string|null */
     protected string|null $medical_history;
 
     /** @var int */
     protected int $user_id;
-    
-    /** 
+
+    /**
      * @return string
      */
-    public function getFisrtName(): string
+    public function getFirstName(): string
     {
         return $this->first_name;
     }
-    
+
     /**
      * @param string $first_name
      */
@@ -38,7 +38,7 @@ class PatientEntity
     {
         $this->first_name = $first_name;
     }
-    
+
     /**
      * @return string
      */
@@ -53,7 +53,7 @@ class PatientEntity
     {
         $this->last_name = $last_name;
     }
-    
+
     /**
      * @return string
      */
@@ -61,7 +61,7 @@ class PatientEntity
     {
         return $this->birth_date;
     }
-    
+
     /**
      * @param string $birth_date
      */
@@ -69,7 +69,7 @@ class PatientEntity
     {
         $this->birth_date = $birth_date;
     }
-    
+
     /**
      * @return string
      */
@@ -77,7 +77,7 @@ class PatientEntity
     {
         return $this->gender;
     }
-    
+
     /**
      * @param string $gender
      */
@@ -88,12 +88,12 @@ class PatientEntity
 
     /**
      * @param string|null
-     */ 
+     */
         public function getMedicalHistory(): string|null
     {
         return $this->medical_history;
     }
-    
+
     /**
      * @param string|null $medical_history
      */
@@ -101,11 +101,11 @@ class PatientEntity
     {
         $this->medical_history = $medical_history;
     }
-    
+
     /**
-     * @return int 
+     * @return int
      */
-    public function getUserId(): int    
+    public function getUserId(): int
     {
         return $this->user_id;
     }

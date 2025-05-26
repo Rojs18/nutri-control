@@ -14,4 +14,8 @@ class NutritionalPlan extends Model
     public function options(){
         return $this->hasMany(Option::class);
     }
+    public function patient(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(Patient::class);
+    }
 }

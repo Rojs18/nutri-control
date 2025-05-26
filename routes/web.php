@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\NutritionalPlanControlller;
+use App\Http\Controllers\NutritionalPlanController;
 use App\Livewire\Settings\Appearance;
 use App\Livewire\Settings\Password;
 use App\Livewire\Settings\Profile;
@@ -29,7 +29,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::resource('recipes', RecipeController::class);
 
-    Route::resource('nutritional-plans', NutritionalPlanControlller::class);
+    Route::resource('nutritional-plans', NutritionalPlanController::class);
 
     Route::get('/patients/{patient}/appointments/create', [AppointmentController::class, 'create'])->name('appointments.create');
 

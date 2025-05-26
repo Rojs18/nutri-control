@@ -12,8 +12,22 @@
                     </a>
             </div>
             <p class="text-gray-600 mt-2 mb-4 text-center">Selecciona las recetas para cada día de la semana</p>
-            <form action="{{ route('nutritional-plans.store') }}" method="POST" id="meal-planner-form">
+            <form action="{{ route('nutritional-plans.store') }}" method="POST">
                 @csrf
+                <div class="mt-2">
+                    <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Nombre del Plan</label>
+                    <input type="text" id="name" name="name" value="" required
+                           class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Paciente</label>
+                    <select name="patient_id" class="meal-select w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                        <option value="">Seleccionar...</option>
+                        @foreach($patients as $patient)
+                            <option value="{{ $patient->id }}">{{$patient->first_name}} {{$patient->last_name}}</option>
+                        @endforeach
+                    </select>
+                </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
                     @foreach(['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes'] as $day)
@@ -25,7 +39,7 @@
                             <div class="p-4">
                                 <div class="mb-4">
                                     <label class="block text-sm font-medium text-gray-700 mb-1">Desayuno</label>
-                                    <select name="meals[{{ $day }}][Desayuno]" class="meal-select w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                                    <select name="options[{{ $day }}][Desayuno]" class="meal-select w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
                                         <option value="">Seleccionar...</option>
                                     @foreach($desayunos as $desayuno)
                                             <option value="{{ $desayuno->id }}">{{$desayuno->name}}</option>
@@ -35,7 +49,7 @@
 
                                 <div class="mb-4">
                                     <label class="block text-sm font-medium text-gray-700 mb-1">Almuerzo</label>
-                                    <select name="meals[{{ $day }}][Almuerzo]" class="meal-select w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                                    <select name="options[{{ $day }}][Almuerzo]" class="meal-select w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
                                         <option value="">Seleccionar...</option>
                                         @foreach($almuerzos as $almuerzo)
                                             <option value="{{ $almuerzo->id }}">{{$almuerzo->name}}</option>
@@ -45,7 +59,7 @@
 
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-1">Cena</label>
-                                    <select name="meals[{{ $day }}][Cena]" class="meal-select w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                                    <select name="options[{{ $day }}][Cena]" class="meal-select w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
                                         <option value="">Seleccionar...</option>
                                         @foreach($cenas as $cena)
                                             <option value="{{ $cena->id }}">{{$cena->name}}</option>
