@@ -31,6 +31,8 @@ Route::middleware(['auth'])->group(function () {
 
     Route::resource('nutritional-plans', NutritionalPlanController::class);
 
+    Route::get('/nutritional-plans/{id}/pdf', [NutritionalPlanController::class, 'generatePDF'])->name('nutritional-plans.pdf');
+
     Route::get('/patients/{patient}/appointments/create', [AppointmentController::class, 'create'])->name('appointments.create');
 
     Route::post('/patients/{patient}/appointments', [AppointmentController::class, 'store'])->name('appointments.store');

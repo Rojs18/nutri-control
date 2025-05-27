@@ -64,9 +64,10 @@
     </style>
 </head>
 <body>
-    <div class="header">
-        <div class="title">PLAN DE ALIMENTACIÓN</div>
-    </div>
+<div class="header">
+    <h1>Plan Nutricional</h1>
+
+</div>
 
     <div class="greeting">
         <p><strong></strong></p>
@@ -76,23 +77,21 @@
         <thead>
             <tr>
                 <th>COMIDA</th>
-                <th>OPCIÓN 1</th>
-                <th>OPCIÓN 2</th>
-                <th>OPCIÓN 3</th>
-                <th>OPCIÓN 4</th>
-                <th>OPCIÓN 5</th>
-                <th>OPCIÓN 6</th>
+                @foreach($plan->options as $option)
+                    <th>{{ $option->name }}</th>
+                @endforeach
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td class="meal_Type">DESAYUNO<br>(9:00 / 10:00 am)</td>
+                <td class="meal-time">DESAYUNO<br>(9:00 / 10:00 am)</td>
+                <option value=""></option>
                 <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
-                <td></td>
+
             </tr>
             <tr>
                 <td class="meal-time">ALMUERZO<br>(1:00 / 2:00 pm)</td>

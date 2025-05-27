@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\NutritionalPlan;
 use App\Models\Patient;
 use App\Models\Recipe;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -73,6 +74,17 @@ class NutritionalPlanController extends Controller
             return back()->withInput()
                 ->with('error', 'Error al crear el plan: ' . $e->getMessage());
         }
+    }
+    public function generatePDF($id)
+    {
+        $plan = NutritionalPlan::with([
+            'patient',
+            'options.mealOptions.recipe.mealType',
+        ])->findOrFail($id);
+
+        $pdf = pdf::loadView('nutritional-plans.pdf', compact('plan'));
+        return $pdf->stream("{$plan->name}.pdf");
+
     }
 
 }
